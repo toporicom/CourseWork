@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/enterApp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10pt"
+                android:textSize="12pt" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="140pt"
+                android:layout_height="30pt"
+                app:passwordToggleEnabled="false">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_login"
+                    android:hint="@string/enter_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="140pt"
+                android:layout_height="30pt"
+                app:passwordToggleEnabled="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/enter_pass"
+                    android:hint="@string/enter_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/enterBtn"
+                android:layout_width="140pt"
+                android:layout_height="30pt"
+                android:layout_marginTop="10pt"
+                android:textColorHint="@color/white"
+                android:textSize="10pt"
+                android:theme="@style/Theme.DefaultButtonColor"
+                android:text="@string/enterButton" />
+            <TextView
+                android:id="@+id/logError"
+                android:text="@string/errorLog"
+                android:textColor="@color/error"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4pt"
+                android:textSize="10pt"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

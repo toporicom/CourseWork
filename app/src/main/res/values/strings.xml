@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">12313</string>
+    <string name="enterApp">Вход в приложение</string>
+    <string name="enter_pass">Пароль</string>
+    <string name="enter_login">Логин</string>
+    <string name="enterButton">ВОЙТИ</string>
+    <string name="errorLog">Неверный логин или пароль</string>
+</resources>

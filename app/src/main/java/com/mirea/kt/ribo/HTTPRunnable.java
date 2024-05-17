@@ -1,5 +1,7 @@
 package com.mirea.kt.ribo;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,10 +75,10 @@ public class HTTPRunnable implements Runnable{
                 }else {
                     System.out.println("Error!");
                 }
+                osw.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-
     }
 }

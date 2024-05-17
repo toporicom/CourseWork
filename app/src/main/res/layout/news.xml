@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150pt"
+    android:layout_height="80pt"
+    android:layout_gravity="top|center"
+    android:layout_marginLeft="10pt"
+    android:layout_marginTop="10pt"
+    android:layout_marginRight="10pt"
+    android:gravity="center"
+    android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border"
+        android:padding="1pt">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/backgroundImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/Circular" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/Circular" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3pt"
+            android:fontFamily="sans-serif-black"
+            android:textFontWeight="900"
+            android:textSize="8pt"
+            android:theme="@style/Base.Theme._CourseWork" />
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3pt"
+            android:textSize="8pt"
+            android:theme="@style/Base.Theme._CourseWork" />
+    </FrameLayout>
+
+</LinearLayout>

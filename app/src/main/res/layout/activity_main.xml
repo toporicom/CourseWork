@@ -28,7 +28,6 @@
                 android:gravity="center"
                 android:text="@string/enterApp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 android:layout_marginBottom="10pt"
                 android:textSize="12pt" />
 
@@ -64,7 +63,6 @@
                 android:layout_marginTop="10pt"
                 android:textColorHint="@color/white"
                 android:textSize="10pt"
-                android:theme="@style/Theme.DefaultButtonColor"
                 android:text="@string/enterButton" />
             <TextView
                 android:id="@+id/logError"

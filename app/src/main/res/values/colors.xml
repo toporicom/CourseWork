@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="colorPrimary">#DC577D</color>
+    <color name="colorPrimaryDark">#AE1351</color>
+    <color name="colorAccent">#FD3E7F</color>
+    <color name="colorSecondary">#63001D</color>
+    <color name="colorSecondaryDark">#350014</color>
+    <color name="colorSecondaryAccent">#810A33</color>
     <color name="lite_purple">#DC577D</color>
     <color name="lite_lite_purple">#AE1351</color>
-    <color name="error">#FF0026</color>
+    <color name="error">#450042</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

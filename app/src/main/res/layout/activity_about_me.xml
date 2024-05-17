@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Base.Theme._CourseWork"
+    tools:context=".AboutMe">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lite_purple"
+        android:minHeight="30pt"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="10pt"
+                android:text="Android-приложение для отображения новостей по различным рубрикам, вариант: 80" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5pt"
+                android:textSize="10pt"
+                android:layout_height="wrap_content"
+                android:text="Login: Student84953, pass: iZF8k4n" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5pt"
+                android:textSize="10pt"
+                android:layout_height="wrap_content"
+                android:text="Приложение создано: " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="10pt"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Агамоглановым Фархадом, РИБО-04-22" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

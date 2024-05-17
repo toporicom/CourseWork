@@ -10,6 +10,8 @@ appcompat = "1.6.1"
 material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+realmGradlePlugin = "10.6.0"
+compiler = "3.2.0-alpha11"
 
 [libraries]
 design = { module = "com.android.support:design", version.ref = "design" }
@@ -22,6 +24,8 @@ junit-v412 = { module = "junit:junit", version.ref = "junitJunit" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+realm-gradle-plugin = { module = "io.realm:realm-gradle-plugin", version.ref = "realmGradlePlugin" }
+compiler = { group = "androidx.databinding", name = "compiler", version.ref = "compiler" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -1,9 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme._CourseWork" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:statusBarColor" tools:targerApi="l">@color/lite_purple</item>
+        <item name="android:statusBarColor" tools:targerApi="l">@color/black</item>
     </style>
 
     <style name="Theme._CourseWork" parent="Base.Theme._CourseWork" />

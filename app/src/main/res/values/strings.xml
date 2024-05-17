@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">12313</string>
+    <string name="app_name">Hot News</string>
     <string name="enterApp">Вход в приложение</string>
     <string name="enter_pass">Пароль</string>
     <string name="enter_login">Логин</string>
     <string name="enterButton">ВОЙТИ</string>
     <string name="errorLog">Неверный логин или пароль</string>
+    <string name="loadingError">Ошибка загрузки</string>
+    <string name="fullNews">Полная новость:</string>
+    <string name="searchingResults">Результатов нет</string>
+    <string name="shareNews">Поделиться новостью</string>
 </resources>

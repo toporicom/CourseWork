@@ -34,6 +34,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="140pt"
                 android:layout_height="30pt"
+                app:errorEnabled="true"
                 app:passwordToggleEnabled="false">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/enter_login"
@@ -63,6 +64,8 @@
                 android:layout_marginTop="10pt"
                 android:textColorHint="@color/white"
                 android:textSize="10pt"
+                android:background="@drawable/border"
+                android:textColor="@color/white"
                 android:text="@string/enterButton" />
             <TextView
                 android:id="@+id/logError"

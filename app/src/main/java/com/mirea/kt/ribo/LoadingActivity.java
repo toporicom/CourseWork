@@ -73,9 +73,9 @@ public class LoadingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (loadTheme()) {
-            setTheme(R.style.Theme_ThemeSwitcher_Dark);
+            setTheme(R.style.Dark);
         } else {
-            setTheme(R.style.Theme_ThemeSwitcher_Light);
+            setTheme(R.style.Light);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);

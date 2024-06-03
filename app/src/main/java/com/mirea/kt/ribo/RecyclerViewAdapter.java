@@ -5,33 +5,27 @@ import static androidx.core.content.ContextCompat.startActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<News> news;
-    private boolean isDarkTheme;
     private Context context;
 
-    public RecyclerViewAdapter(List<News> news, boolean isDarkTheme) {
+    public RecyclerViewAdapter(List<News> news) {
         this.news = news;
-        this.isDarkTheme = isDarkTheme;
     }
-
+    private boolean isLightTheme(Context context){
+        return context.getTheme().toString().contains("Theme.Material3.Light");
+    }
 
     @NonNull
     @Override
@@ -55,7 +49,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         TextView tvDate = holder.itemView.findViewById(R.id.tvDate);
         ImageView imgView = holder.itemView.findViewById(R.id.imgView);
         ImageView backgroundImg = holder.itemView.findViewById(R.id.backgroundImg);
-        imgView.setImageResource(R.drawable.day_img);
+        if (isLightTheme(frameLayout.getContext())) {
+            imgView.setImageResource(R.drawable.day_img);
+        } else {
+            imgView.setImageResource(R.drawable.night_img);
+        }
         tvTitle.setText(news.get(position).getTitle());
         tvDate.setText(news.get(position).getDate().substring(4, news.get(position).getDate().length() - 6));
         LoadingFromNet lfn = new LoadingFromNet(news.get(position).getImg().substring(news.get(position).getImg().lastIndexOf("/") + 1));

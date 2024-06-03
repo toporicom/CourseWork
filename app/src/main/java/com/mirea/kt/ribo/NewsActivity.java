@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.method.MovementMethod;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -35,15 +36,14 @@ public class NewsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (loadTheme()) {
-            setTheme(R.style.Theme_ThemeSwitcher_Dark);
+            setTheme(R.style.Dark);
         } else {
-            setTheme(R.style.Theme_ThemeSwitcher_Light);
+            setTheme(R.style.Light);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
         TextView tvTitle, tvDescription, tvDate, tvLink, tvShare;
-        String link = getIntent().getStringExtra("link");
         ImageView imageView;
         imageView = findViewById(R.id.imgViewNews);
         tvTitle = findViewById(R.id.tvTitle);
@@ -52,6 +52,7 @@ public class NewsActivity extends AppCompatActivity {
         tvLink = findViewById(R.id.tvLink);
         tvShare = findViewById(R.id.tvShare);
 
+        String link = getIntent().getStringExtra("link");
         tvTitle.setText(getIntent().getStringExtra("title"));
         tvDescription.setText(getIntent().getStringExtra("description"));
         tvDate.setText(getIntent().getStringExtra("date").substring(5, getIntent().getStringExtra("date").length() - 6));
@@ -71,6 +72,9 @@ public class NewsActivity extends AppCompatActivity {
         imageView.setImageDrawable(drawable);
 
         Toolbar tb = findViewById(R.id.toolBar);
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(androidx.constraintlayout.widget.R.attr.colorPrimary, typedValue, true);
+        tb.setBackgroundColor(typedValue.data);
         setSupportActionBar(tb);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -105,11 +109,11 @@ public class NewsActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.Action_theme) {
             if (loadTheme()) {
                 item.setIcon(R.drawable.half_moon_189162);
-                setTheme(R.style.Theme_ThemeSwitcher_Light);
+                setTheme(R.style.Light);
                 saveTheme(false);
             } else {
                 item.setIcon(R.drawable.sun_869869);
-                setTheme(R.style.Theme_ThemeSwitcher_Dark);
+                setTheme(R.style.Dark);
                 saveTheme(true);
             }
             recreate();

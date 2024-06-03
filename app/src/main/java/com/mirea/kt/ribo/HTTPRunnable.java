@@ -23,7 +23,7 @@ public class HTTPRunnable implements Runnable{
     private String responseBody;
     private String generateStringBody(){
         StringBuilder sbParams = new StringBuilder();
-        if(this.requestBody != null && !requestBody.isEmpty()){
+        if (this.requestBody != null && !requestBody.isEmpty()){
             int i = 0;
             for (String key : this.requestBody.keySet()){
                 try {
@@ -62,7 +62,7 @@ public class HTTPRunnable implements Runnable{
                 osw.write(generateStringBody());
                 osw.flush();
                 int responseCode = httpURLConnection.getResponseCode();
-                System.out.println("Response Code: " + responseCode);
+                Log.i("my_tag", "Response code: " + responseCode);
                 if (responseCode == 200){
                     InputStreamReader isr = new InputStreamReader(httpURLConnection.getInputStream());
                     BufferedReader br = new BufferedReader(isr);
@@ -73,7 +73,7 @@ public class HTTPRunnable implements Runnable{
                     }
                     responseBody = sbResponse.toString();
                 }else {
-                    System.out.println("Error!");
+                    Log.i("my_tag", "Error!");
                 }
                 osw.close();
             } catch (IOException e) {

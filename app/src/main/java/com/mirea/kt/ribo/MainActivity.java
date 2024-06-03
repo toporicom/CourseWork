@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (loadTheme()) {
-            setTheme(R.style.Theme_ThemeSwitcher_Dark);
+            setTheme(R.style.Dark);
         } else {
-            setTheme(R.style.Theme_ThemeSwitcher_Light);
+            setTheme(R.style.Light);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -71,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("my_task", "Variant: " + jsonObject.getString("variant"));
                         System.out.println(jsonObject);
                         tvError.setVisibility(View.GONE);
-                    } catch (JSONException e) {
                         Intent loadingPageIntent = new Intent(this, LoadingActivity.class);
                         startActivity(loadingPageIntent);
+                    } catch (JSONException e) {
+                        Log.i("my_task", "Error, invalid login or pass");
+                        tvError.setVisibility(View.VISIBLE);
                     }
                 }
             }catch (RuntimeException e){
-                Log.i("my_task", "Error, invalid login or pass");
-                tvError.setVisibility(View.VISIBLE);
             }
         });
     }

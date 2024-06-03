@@ -26,7 +26,6 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            style="@style/Base.Theme._CourseWork"
             android:layout_width="wrap_content"
             android:layout_marginBottom="10pt"
             android:layout_height="wrap_content"
@@ -40,14 +39,12 @@
             />
         <TextView
             android:id="@+id/tvDescription"
-            style="@style/Base.Theme._CourseWork"
             android:layout_width="wrap_content"
             android:layout_marginTop="10pt"
             android:layout_height="wrap_content"
             android:textSize="8pt" />
 
         <TextView
-            style="@style/Base.Theme._CourseWork"
             android:layout_width="wrap_content"
             android:layout_marginTop="9pt"
             android:text="@string/fullNews"
@@ -56,7 +53,6 @@
 
         <TextView
             android:id="@+id/tvLink"
-            style="@style/Base.Theme._CourseWork"
             android:layout_width="wrap_content"
             android:layout_marginTop="6pt"
             android:layout_height="wrap_content"
@@ -65,7 +61,6 @@
             android:textSize="8pt" />
         <TextView
             android:id="@+id/tvShare"
-            style="@style/Base.Theme._CourseWork"
             android:layout_width="wrap_content"
             android:layout_marginTop="10pt"
             android:layout_height="wrap_content"
@@ -74,7 +69,6 @@
 
         <TextView
             android:id="@+id/tvDate"
-            style="@style/Base.Theme._CourseWork"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="6pt" />

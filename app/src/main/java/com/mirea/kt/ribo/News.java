@@ -7,12 +7,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 public class News {
-    /*private String title;
-    private URL link;
-    private LocalDate date;
-    private String description;
-    private String category;
-    private URL img;*/
     String title, link, date, description, category, img;
     int id;
 

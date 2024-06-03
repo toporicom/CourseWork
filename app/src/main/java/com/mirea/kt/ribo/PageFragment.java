@@ -27,10 +27,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class PageFragment extends Fragment {
-    static final String ARGUMENT_PAGE_NUMBER = "pageNumber";
     int pageNumber;
     private static final String positionKey = "POSITION_KEY";
-    private boolean isDarkTheme;
     private List<String> tables = new ArrayList<String>() {{
         add(0, "MOSCOW");
         add(1, "POLITICS");
@@ -81,14 +79,14 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         pageNumber =  requireArguments().getInt(positionKey);
-        isDarkTheme = requireArguments().getBoolean("isDarkTheme");
+        boolean isDarkTheme = requireArguments().getBoolean("isDarkTheme");
         View view = inflater.inflate(R.layout.fragment_page, container, false );
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         List<News> news = takeFromDb(tables.get(pageNumber - 1), getLayoutInflater().getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(news, isDarkTheme);
+        RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(news);
         recyclerView.setAdapter(rvAdapter);
 
         return view;

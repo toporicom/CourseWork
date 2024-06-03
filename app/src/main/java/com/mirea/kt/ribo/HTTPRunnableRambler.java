@@ -22,13 +22,9 @@ public class HTTPRunnableRambler implements Runnable {
     public void run() {
         try {
             URL url = new URL(this.address);
-
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
             connection.setRequestMethod("GET");
-
             int responseCode = connection.getResponseCode();
-
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
@@ -42,9 +38,7 @@ public class HTTPRunnableRambler implements Runnable {
             } else {
                 System.out.println("Failed with code: " + responseCode);
             }
-
             connection.disconnect();
-
         } catch (Exception e) {
             e.printStackTrace();
         }

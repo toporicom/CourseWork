@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -77,16 +78,19 @@ public class SearchingResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (loadTheme()) {
-            setTheme(R.style.Theme_ThemeSwitcher_Dark);
+            setTheme(R.style.Dark);
             isDarkTheme = true;
         } else {
-            setTheme(R.style.Theme_ThemeSwitcher_Light);
+            setTheme(R.style.Light);
             isDarkTheme = false;
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searching_result);
         TextView tvRes = findViewById(R.id.searingRes);
         Toolbar tb = findViewById(R.id.toolBar);
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(androidx.constraintlayout.widget.R.attr.colorPrimary, typedValue, true);
+        tb.setBackgroundColor(typedValue.data);
         setSupportActionBar(tb);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -99,7 +103,7 @@ public class SearchingResultActivity extends AppCompatActivity {
             LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setHasFixedSize(true);
-            RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(news, isDarkTheme);
+            RecyclerViewAdapter rvAdapter = new RecyclerViewAdapter(news);
             recyclerView.setAdapter(rvAdapter);
         }else {
             tvRes.setVisibility(View.VISIBLE);
@@ -121,11 +125,11 @@ public class SearchingResultActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.Action_theme) {
             if (loadTheme()) {
                 item.setIcon(R.drawable.half_moon_189162);
-                setTheme(R.style.Theme_ThemeSwitcher_Light);
+                setTheme(R.style.Light);
                 saveTheme(false);
             } else {
                 item.setIcon(R.drawable.sun_869869);
-                setTheme(R.style.Theme_ThemeSwitcher_Dark);
+                setTheme(R.style.Dark);
                 saveTheme(true);
             }
             recreate();

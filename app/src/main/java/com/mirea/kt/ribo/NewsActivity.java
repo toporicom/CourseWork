@@ -55,7 +55,7 @@ public class NewsActivity extends AppCompatActivity {
         String link = getIntent().getStringExtra("link");
         tvTitle.setText(getIntent().getStringExtra("title"));
         tvDescription.setText(getIntent().getStringExtra("description"));
-        tvDate.setText(getIntent().getStringExtra("date").substring(5, getIntent().getStringExtra("date").length() - 6));
+        tvDate.setText(getIntent().getStringExtra("date"));
         tvLink.setText(link);
         tvLink.setMovementMethod(LinkMovementMethod.getInstance());
         String img = getIntent().getStringExtra("img");

@@ -48,6 +48,10 @@ public class News {
         return category;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @NonNull
     @Override
     public String toString() {

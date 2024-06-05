@@ -55,7 +55,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             imgView.setImageResource(R.drawable.night_img);
         }
         tvTitle.setText(news.get(position).getTitle());
-        tvDate.setText(news.get(position).getDate().substring(4, news.get(position).getDate().length() - 6));
+        tvDate.setText(news.get(position).getDate());
         LoadingFromNet lfn = new LoadingFromNet(news.get(position).getImg().substring(news.get(position).getImg().lastIndexOf("/") + 1));
         Thread th = new Thread(lfn);
         th.start();

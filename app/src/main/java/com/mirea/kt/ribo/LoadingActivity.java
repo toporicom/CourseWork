@@ -14,7 +14,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LoadingActivity extends AppCompatActivity {
     private final String server = "https://news.rambler.ru/rss/";
@@ -44,15 +48,23 @@ public class LoadingActivity extends AppCompatActivity {
         SQLiteDatabase db = getApplicationContext().openOrCreateDatabase("news.db", MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (title TEXT, link TEXT, date TEXT, description TEXT, category TEXT, img TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)");
         for (News news : resultArrOfNews) {
-            db.execSQL("INSERT OR IGNORE INTO " + tableName + " VALUES ("
+            String date = news.getDate().substring(5, 16);
+            String date3;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
+                date3 = LocalDate.parse(date, formatter).toString();
+            }else {
+                date3 = news.getDate();
+            }
+            db.execSQL("INSERT OR IGNORE INTO " + tableName + " (title, link, date, description, category, img)" + " SELECT "
                     + "'" + news.getTitle() + "',"
                     + "'" + news.getLink() + "',"
-                    + "'" + news.getDate() + "',"
+                    + "'" + date3 + "',"
                     + "'" + news.getDescription() + "',"
                     + "'" + news.getCategory() + "',"
-                    + "'" + news.getImg() + "',"
-                    + "'" + news.getId() + "'" +
-                    ");");
+                    + "'" + news.getImg() + "'"
+                    + " WHERE NOT EXISTS (SELECT * FROM " + tableName + " WHERE date = " + "'" + news.getDate() + "')");
+            news.setDate(date);
         }
         db.close();
     }

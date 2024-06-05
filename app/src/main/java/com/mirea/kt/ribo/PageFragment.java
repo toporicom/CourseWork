@@ -29,6 +29,7 @@ import java.util.List;
 public class PageFragment extends Fragment {
     int pageNumber;
     private static final String positionKey = "POSITION_KEY";
+
     private List<String> tables = new ArrayList<String>() {{
         add(0, "MOSCOW");
         add(1, "POLITICS");
@@ -55,7 +56,7 @@ public class PageFragment extends Fragment {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (title TEXT, link TEXT, date TEXT, description TEXT, category TEXT, img TEXT, id INTEGER PRIMARY KEY AUTOINCREMENT)");
         String title, link, date, description, category, img;
         List<News> news = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + tableName + " ORDER BY date", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + tableName + " ORDER BY date DESC", null);
         int index = 1;
         while (cursor.moveToNext()) {
             title = cursor.getString(0);
@@ -79,7 +80,6 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         pageNumber =  requireArguments().getInt(positionKey);
-        boolean isDarkTheme = requireArguments().getBoolean("isDarkTheme");
         View view = inflater.inflate(R.layout.fragment_page, container, false );
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());

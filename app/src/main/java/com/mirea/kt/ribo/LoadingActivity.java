@@ -26,7 +26,9 @@ public class LoadingActivity extends AppCompatActivity {
 
     private boolean loadTheme() {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
-        return preferences.getBoolean("isDarkTheme", false);
+        boolean theme = preferences.getBoolean("isDarkTheme", false);
+        Log.i("theme_loading", (theme) ? "Dark" : "Light");
+        return theme;
     }
 
     private static List<String> getJSONObject(String server, String serverPath) {
@@ -36,6 +38,7 @@ public class LoadingActivity extends AppCompatActivity {
             Thread th = new Thread(httpRunnable);
             th.start();
             th.join();
+            Log.i("httpRunnable result", httpRunnable.getResult().toString());
             return httpRunnable.getResult();
 
         } catch (InterruptedException e) {
@@ -65,17 +68,20 @@ public class LoadingActivity extends AppCompatActivity {
                     + "'" + news.getImg() + "'"
                     + " WHERE NOT EXISTS (SELECT * FROM " + tableName + " WHERE date = " + "'" + news.getDate() + "')");
             news.setDate(date);
+            Log.i("newsToDb", news.toString());
         }
         db.close();
     }
 
     private void createSortThread(String serverPath, String tableName) {
+        Log.i("server", server + serverPath);
         SQLRunnable sqlRunnable = new SQLRunnable(getJSONObject(server, serverPath));
         Thread th = new Thread(sqlRunnable);
         th.start();
         try {
             th.join();
             List<News> resultArrOfNews = sqlRunnable.getResult();
+            Log.i("resultArr", resultArrOfNews.toString());
             writeToDb(resultArrOfNews, tableName);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

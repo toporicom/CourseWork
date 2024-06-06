@@ -3,6 +3,7 @@ package com.mirea.kt.ribo;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,7 +17,9 @@ import androidx.appcompat.widget.Toolbar;
 public class AboutMe extends AppCompatActivity {
     private boolean loadTheme() {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
-        return preferences.getBoolean("isDarkTheme", false);
+        boolean theme = preferences.getBoolean("isDarkTheme", false);
+        Log.i("theme_aboutme", (theme) ? "Dark" : "Light");
+        return theme;
     }
     private void saveTheme(boolean isDarkTheme) {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);

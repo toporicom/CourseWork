@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean loadTheme() {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
-        return preferences.getBoolean("isDarkTheme", false);
+        boolean theme = preferences.getBoolean("isDarkTheme", false);
+        Log.i("theme_main", (theme) ? "Dark" : "Light");
+        return theme;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("my_task", "Title: " + jsonObject.getString("title"));
                         Log.i("my_task", "Task: " + jsonObject.getString("task"));
                         Log.i("my_task", "Variant: " + jsonObject.getString("variant"));
-                        System.out.println(jsonObject);
                         tvError.setVisibility(View.GONE);
                         Intent loadingPageIntent = new Intent(this, LoadingActivity.class);
                         startActivity(loadingPageIntent);

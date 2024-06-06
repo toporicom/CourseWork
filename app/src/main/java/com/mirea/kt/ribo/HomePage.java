@@ -36,7 +36,9 @@ public class HomePage extends AppCompatActivity {
 
     private boolean loadTheme() {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
-        return preferences.getBoolean("isDarkTheme", false);
+        boolean theme = preferences.getBoolean("isDarkTheme", false);
+        Log.i("theme_main", (theme) ? "Dark" : "Light");
+        return theme;
     }
 
     @Override
@@ -53,11 +55,13 @@ public class HomePage extends AppCompatActivity {
             PageFragment fragment = PageFragment.getNewInstance(i, loadTheme());
             pages.add(fragment);
         }
+
+
         PagerTabStrip pagerTabStrip = findViewById(R.id.pagerTabStrip);
         pagerTabStrip.setTextSize(TypedValue.COMPLEX_UNIT_PT, 9);
 
-        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.vpMain);
+        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager());
         viewPager.setAdapter(vpAdapter);
         vpAdapter.setPages(pages);
 
@@ -92,6 +96,7 @@ public class HomePage extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SearchingResultActivity.class);
                 intent.putExtra("query", query);
                 startActivity(intent);
+                Log.i("Searching intent", "Searching intent, " + query);
                 if (!searchView.isIconified()) {
                     searchView.setIconified(true);
                 }
@@ -101,7 +106,6 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                // UserFeedback.show( "SearchOnQueryTextChanged: " + s);
                 return false;
             }
         });

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -73,7 +74,9 @@ public class SearchingResultActivity extends AppCompatActivity {
     }
     private boolean loadTheme() {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
-        return preferences.getBoolean("isDarkTheme", false);
+        boolean theme = preferences.getBoolean("isDarkTheme", false);
+        Log.i("theme_searching", (theme) ? "Dark" : "Light");
+        return theme;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

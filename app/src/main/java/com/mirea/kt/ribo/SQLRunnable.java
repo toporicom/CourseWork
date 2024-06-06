@@ -55,6 +55,4 @@ public class SQLRunnable implements Runnable {
 
         }
     }
-
-
 }

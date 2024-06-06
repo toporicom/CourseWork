@@ -80,7 +80,7 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         pageNumber =  requireArguments().getInt(positionKey);
-        View view = inflater.inflate(R.layout.fragment_page, container, false );
+        View view = inflater.inflate(R.layout.fragment_page, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         List<News> news = takeFromDb(tables.get(pageNumber - 1), getLayoutInflater().getContext());

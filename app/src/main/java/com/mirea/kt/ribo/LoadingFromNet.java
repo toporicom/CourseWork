@@ -28,7 +28,7 @@ public class LoadingFromNet implements Runnable {
             InputStream is = (InputStream) new URL("https://news.store.rambler.ru/img/" + src_name).getContent();
             drawable = Drawable.createFromStream(is, src_name);
         } catch (Exception e) {
-            System.out.println("Exc=" + e);
+            Log.i("LoadingFromNet error", "Error");
         }
     }
 }

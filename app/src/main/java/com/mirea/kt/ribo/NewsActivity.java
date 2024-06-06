@@ -24,7 +24,9 @@ public class NewsActivity extends AppCompatActivity {
 
     private boolean loadTheme() {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
-        return preferences.getBoolean("isDarkTheme", false);
+        boolean theme = preferences.getBoolean("isDarkTheme", false);
+        Log.i("theme_news", (theme) ? "Dark" : "Light");
+        return theme;
     }
     private void saveTheme(boolean isDarkTheme) {
         SharedPreferences preferences = getSharedPreferences("ThemeSwitcher", MODE_PRIVATE);
@@ -89,7 +91,7 @@ public class NewsActivity extends AppCompatActivity {
                 String body = "Поделиться новостью";
                 intent.putExtra(Intent.EXTRA_TEXT, body);
                 intent.putExtra(Intent.EXTRA_TEXT, link);
-                startActivity(Intent.createChooser(intent, "Share using"));
+                startActivity(Intent.createChooser(intent, "Поделиться с помощью: "));
             }
         });
     }

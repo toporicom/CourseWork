@@ -66,7 +66,7 @@ public class LoadingActivity extends AppCompatActivity {
                     + "'" + news.getDescription() + "',"
                     + "'" + news.getCategory() + "',"
                     + "'" + news.getImg() + "'"
-                    + " WHERE NOT EXISTS (SELECT * FROM " + tableName + " WHERE date = " + "'" + news.getDate() + "')");
+                    + " WHERE NOT EXISTS (SELECT * FROM " + tableName + " WHERE title = " + "'" + news.getTitle() + "')");
             news.setDate(date);
             Log.i("newsToDb", news.toString());
         }

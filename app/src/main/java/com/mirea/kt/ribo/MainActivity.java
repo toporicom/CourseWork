@@ -75,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
                         Intent loadingPageIntent = new Intent(this, LoadingActivity.class);
                         startActivity(loadingPageIntent);
                     } catch (JSONException e) {
-                        Intent loadingPageIntent = new Intent(this, LoadingActivity.class);
-                        startActivity(loadingPageIntent);
                         Log.i("my_task", "Error, invalid login or pass");
                         tvError.setVisibility(View.VISIBLE);
                     }

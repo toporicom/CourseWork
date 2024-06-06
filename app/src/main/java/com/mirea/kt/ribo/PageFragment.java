@@ -69,7 +69,6 @@ public class PageFragment extends Fragment {
             news.add(index - 1, newsObj);
             index++;
         }
-        Collections.reverse(news);
         cursor.close();
         db.close();
 
